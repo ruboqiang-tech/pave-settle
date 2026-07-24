@@ -1,0 +1,670 @@
+.cost-management-page {
+  --cost-color-primary: #2563eb;
+  --cost-color-primary-text: #2563eb;
+  --cost-surface-panel: #ffffff;
+  --cost-surface-panel-soft: #fafcff;
+  --cost-border-base: var(--card-border);
+  --cost-border-soft: #e2e8f0;
+  --cost-text-title: var(--text-primary);
+  --cost-text-body: var(--text-secondary);
+  --cost-text-muted: var(--text-muted);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+html[data-theme='dark'] .cost-management-page,
+.dark .cost-management-page {
+  --cost-color-primary-text: #9edbff;
+  --cost-surface-panel: var(--card-bg);
+  --cost-surface-panel-soft: #202a35;
+  --cost-border-base: rgba(167, 182, 199, 0.14);
+  --cost-border-soft: rgba(167, 182, 199, 0.12);
+}
+
+.cost-page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  border: 1px solid var(--cost-border-base);
+  border-radius: 1rem;
+  background: var(--cost-surface-panel);
+  box-shadow: var(--card-shadow);
+  padding: 1.25rem 1.5rem;
+}
+
+.cost-page-head__copy {
+  min-width: 0;
+}
+
+.cost-page-head__title {
+  margin: 0;
+  color: var(--cost-text-title);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.cost-page-head__meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  color: var(--cost-text-body);
+  font-size: 0.875rem;
+}
+
+.cost-project-select {
+  width: min(420px, 100%);
+  flex-shrink: 0;
+}
+
+.cost-workspace-tabs > .el-tabs__content {
+  overflow: visible;
+}
+
+.cost-section-title {
+  margin: 0;
+  color: var(--cost-text-title);
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+
+.cost-budget-template {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cost-budget-template__head,
+.cost-template-panel__head,
+.cost-template-sidebar__head,
+.cost-template-actions,
+.cost-template-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cost-budget-template__head,
+.cost-template-panel__head,
+.cost-template-sidebar__head {
+  justify-content: space-between;
+}
+
+.cost-template-grid {
+  display: grid;
+  grid-template-columns: 320px minmax(0, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+.cost-template-sidebar,
+.cost-template-panel {
+  border: 1px solid var(--cost-border-base);
+  border-radius: 1rem;
+  background: var(--cost-surface-panel);
+  box-shadow: var(--card-shadow);
+}
+
+.cost-template-sidebar {
+  padding: 1rem;
+  position: sticky;
+  top: 1rem;
+}
+
+.cost-template-sidebar__head {
+  color: var(--cost-text-title);
+  font-weight: 700;
+}
+
+.cost-quota-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  margin-top: 0.75rem;
+}
+
+.cost-quota-item {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  cursor: pointer;
+  flex-direction: column;
+  gap: 0.35rem;
+  border: 1px solid var(--cost-border-soft);
+  border-radius: 0.625rem;
+  background: var(--cost-surface-panel-soft);
+  padding: 0.75rem;
+  text-align: left;
+  transition: border-color 0.18s ease, background-color 0.18s ease;
+}
+
+.cost-quota-item:hover,
+.cost-quota-item--active {
+  border-color: rgba(37, 99, 235, 0.38);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.cost-quota-item strong,
+.cost-quota-item span {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.cost-quota-item strong {
+  color: var(--cost-text-title);
+  font-size: 0.95rem;
+}
+
+.cost-quota-item span {
+  color: var(--cost-text-body);
+  font-size: 0.8125rem;
+}
+
+.cost-quota-item__code {
+  color: var(--cost-color-primary-text) !important;
+  font-weight: 700;
+}
+
+.cost-template-main {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cost-template-panel {
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.cost-template-panel h3,
+.cost-analysis-head h3 {
+  margin: 0;
+  color: var(--cost-text-title);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.cost-analysis-head {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cost-analysis-title {
+  display: flex;
+  flex: 1 1 auto;
+  min-width: 0;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.cost-analysis-title h3 {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.cost-analysis-code {
+  flex-shrink: 0;
+  color: var(--cost-color-primary-text);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.cost-unit-switch {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 0.375rem;
+  margin-left: auto;
+}
+
+.cost-unit-switch .cost-measure-label {
+  display: inline-flex;
+  align-items: center;
+  height: 24px;
+  line-height: 24px;
+}
+
+.cost-unit-switch .el-radio-group {
+  display: flex;
+  align-items: center;
+}
+
+.cost-unit-switch .el-radio-button__inner {
+  height: 24px;
+  line-height: 22px;
+  padding: 0 0.55rem;
+}
+
+.cost-measure-layout {
+  display: grid;
+  grid-template-columns: minmax(20rem, 1.48fr) minmax(15rem, 0.98fr) minmax(12.5rem, 0.92fr);
+  gap: 0.75rem;
+  align-items: stretch;
+  margin-top: 0.75rem;
+  border: 1px solid var(--cost-border-soft);
+  border-radius: 0.625rem;
+  background: linear-gradient(180deg, var(--cost-surface-panel-soft), var(--cost-surface-panel));
+  padding: 0.55rem 0.625rem;
+}
+
+.cost-measure-group {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 1fr;
+  gap: 0.45rem;
+  align-items: start;
+  border-right: 1px solid var(--cost-border-soft);
+  padding: 0 0.75rem 0 0;
+}
+
+.cost-measure-group:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
+
+.cost-measure-group__head {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0;
+}
+
+.cost-measure-group__head strong {
+  color: var(--cost-text-title);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.cost-measure-group__head span {
+  display: none;
+}
+
+.cost-measure-fields {
+  display: grid;
+  min-width: 0;
+  gap: 0.35rem;
+}
+
+.cost-measure-fields--project {
+  grid-template-columns: repeat(4, minmax(4.75rem, 1fr));
+}
+
+.cost-measure-fields--project .cost-measure-label {
+  font-size: 0.625rem;
+}
+
+.cost-measure-fields--project .el-input-number {
+  max-width: 5.5rem;
+}
+
+.cost-measure-fields--fees {
+  grid-template-columns: repeat(3, minmax(4.5rem, 1fr));
+}
+
+.cost-measure-fields--fees .cost-measure-label {
+  font-size: 0.625rem;
+}
+
+.cost-measure-fields--fees .el-input-number {
+  max-width: 5.25rem;
+}
+
+.cost-measure-field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.cost-measure-field .el-input__wrapper {
+  min-height: 21px;
+}
+
+.cost-measure-field .el-input__inner {
+  height: 21px;
+  line-height: 21px;
+}
+
+.cost-measure-field .el-input-number {
+  width: 100%;
+  max-width: 6.75rem;
+}
+
+.cost-measure-label {
+  color: var(--cost-text-body);
+  font-size: 0.6875rem;
+  font-weight: 500;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.cost-conversion-list {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 1fr;
+  gap: 0.25rem;
+}
+
+.cost-conversion-item {
+  display: grid;
+  min-width: 0;
+  grid-template-columns: 4rem minmax(0, 1fr);
+  gap: 0.375rem;
+  align-items: baseline;
+  border-top: 1px solid var(--cost-border-soft);
+  padding-top: 0.25rem;
+}
+
+.cost-conversion-item:first-child {
+  border-top: 0;
+  padding-top: 0;
+}
+
+.cost-conversion-item:last-child {
+  border-bottom: 0;
+}
+
+.cost-conversion-item span {
+  color: var(--cost-text-body);
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+
+.cost-conversion-item strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--cost-text-title);
+  font-size: 0.8125rem;
+  font-weight: 650;
+  line-height: 1.25;
+}
+
+.cost-result-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(148px, 1fr));
+  gap: 0.5rem;
+  margin: 0.625rem 0 0.75rem;
+}
+
+.cost-result-card {
+  min-width: 0;
+  border: 1px solid var(--cost-border-soft);
+  border-radius: 0.5rem;
+  background: var(--cost-surface-panel);
+  padding: 0.5rem 0.625rem;
+}
+
+.cost-result-card span {
+  display: block;
+  color: var(--cost-text-body);
+  font-size: 0.8125rem;
+}
+
+.cost-result-card strong {
+  display: block;
+  margin-top: 0.25rem;
+  color: var(--cost-text-title);
+  font-size: 0.9375rem;
+  overflow-wrap: anywhere;
+}
+
+.cost-result-card--primary {
+  border-color: rgba(37, 99, 235, 0.32);
+  background: rgba(37, 99, 235, 0.06);
+}
+
+.cost-result-card--primary strong {
+  color: var(--cost-color-primary-text);
+}
+
+.cost-management-page .pd-panel {
+  border: 1px solid var(--cost-border-base);
+  border-radius: 1rem;
+  background: var(--cost-surface-panel);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+}
+
+.cost-management-page .pd-section-head,
+.cost-management-page .pd-toolbar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.cost-management-page .pd-section-title {
+  margin: 0;
+  color: var(--cost-text-title);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.cost-management-page .pd-toolbar-group {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.cost-management-page .pd-toolbar-title {
+  color: var(--cost-text-body);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.cost-management-page .pd-field-full,
+.cost-management-page .pd-field-quantity,
+.cost-management-page .pd-field-price {
+  width: 100%;
+  min-width: 0;
+}
+
+.cost-management-page .pd-cost-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cost-management-page .pd-cost-metrics {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.cost-management-page .pd-cost-metric {
+  min-width: 0;
+  border: 1px solid var(--cost-border-soft);
+  border-radius: 0.5rem;
+  background: var(--cost-surface-panel-soft);
+  padding: 0.75rem;
+}
+
+.cost-management-page .pd-cost-metric-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--cost-text-body);
+  font-size: 0.8125rem;
+}
+
+.cost-management-page .pd-cost-metric strong {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--cost-text-title);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.cost-management-page .pd-cost-positive {
+  color: #059669 !important;
+}
+
+.cost-management-page .pd-cost-negative {
+  color: #dc2626 !important;
+}
+
+.cost-management-page .pd-cost-tabs {
+  margin-bottom: -0.5rem;
+}
+
+.cost-management-page .pd-cost-toolbar {
+  margin-bottom: 0;
+}
+
+.cost-management-page .pd-cost-breakdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.cost-management-page .pd-cost-breakdown-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid var(--cost-border-soft);
+  border-radius: 0.5rem;
+  background: var(--cost-surface-panel);
+  padding: 0.625rem 0.75rem;
+  color: var(--cost-text-body);
+  font-size: 0.875rem;
+}
+
+.cost-management-page .pd-cost-breakdown-item strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--cost-text-title);
+}
+
+.cost-management-page .pd-cost-table .el-input-number,
+.cost-management-page .pd-cost-table .el-date-editor,
+.cost-management-page .pd-cost-table .el-select,
+.cost-management-page .pd-cost-table .el-input {
+  width: 100%;
+}
+
+@media (max-width: 1280px) {
+  .cost-template-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cost-template-sidebar {
+    position: static;
+  }
+
+  .cost-management-page .pd-cost-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 1024px) {
+  .cost-measure-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cost-measure-group {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+    align-items: stretch;
+    border-right: 0;
+    border-bottom: 1px solid var(--cost-border-soft);
+    padding: 0 0 0.75rem;
+  }
+
+  .cost-measure-group:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .cost-measure-group__head {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .cost-measure-fields--project {
+    grid-template-columns: repeat(4, minmax(5.5rem, 6.75rem));
+  }
+
+  .cost-conversion-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .cost-page-head {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .cost-project-select {
+    width: 100%;
+  }
+
+  .cost-management-page .pd-panel {
+    padding: 1rem;
+  }
+
+  .cost-measure-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .cost-measure-group,
+  .cost-measure-group--fees,
+  .cost-measure-group--conversion {
+    grid-column: auto;
+    border-right: 0;
+    border-top: 0;
+    border-bottom: 1px solid var(--cost-border-soft);
+    padding: 0 0 0.75rem;
+  }
+
+  .cost-measure-group:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .cost-measure-fields--project,
+  .cost-conversion-list,
+  .cost-result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cost-conversion-item,
+  .cost-conversion-item:first-child {
+    grid-template-columns: 4.5rem minmax(0, 1fr);
+    gap: 0.625rem;
+    border-left: 0;
+    border-bottom: 1px solid var(--cost-border-soft);
+    padding: 0.45rem 0;
+  }
+
+  .cost-conversion-item:first-child {
+    padding-top: 0;
+  }
+
+  .cost-conversion-item:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .cost-management-page .pd-cost-metrics,
+  .cost-management-page .pd-cost-breakdown {
+    grid-template-columns: 1fr;
+  }
+}

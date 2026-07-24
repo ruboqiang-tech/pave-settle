@@ -1,0 +1,101 @@
+/* ==========================================================================
+   Attachment Manager Component
+   ========================================================================== */
+
+.am-panel {
+  --am-pending-text: var(--accent-warning);
+  --am-preview-bg: var(--panel-muted);
+  border: 1px solid var(--card-border);
+  border-radius: 20px;
+  background: var(--card-bg);
+  box-shadow: var(--card-shadow);
+  padding: 1.5rem;
+}
+
+.am-title {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0 0 1rem;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.am-title-badge {
+  margin-left: 0.25rem;
+}
+
+.am-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.am-upload-tip {
+  color: var(--text-secondary);
+}
+
+.am-pending-note {
+  margin-left: 0.5rem;
+  color: var(--am-pending-text);
+}
+
+.am-table-wrap {
+  min-width: 0;
+}
+
+.am-file-link {
+  max-width: 100%;
+}
+
+.am-file-icon {
+  margin-right: 0.25rem;
+}
+
+.am-status-time {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.am-preview-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 60vh;
+  border-radius: 18px;
+  background: var(--am-preview-bg);
+  padding: 1rem;
+}
+
+.am-preview-media {
+  display: block;
+  max-width: 100%;
+}
+
+.am-preview-media--image {
+  max-height: 75vh;
+  object-fit: contain;
+}
+
+.am-preview-media--pdf {
+  width: 100%;
+  height: 75vh;
+  border: 0;
+}
+
+@media (max-width: 640px) {
+  .am-panel {
+    border-radius: 16px;
+    padding: 1rem;
+  }
+
+  .am-title {
+    flex-wrap: wrap;
+  }
+
+  .am-preview-stage {
+    min-height: 45vh;
+    padding: 0.75rem;
+  }
+}

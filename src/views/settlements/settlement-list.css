@@ -1,0 +1,205 @@
+/* ==========================================================================
+   Settlement List Theme Tokens
+   ========================================================================== */
+
+.settlement-list-page {
+  --sl-color-primary: #2563eb;
+  --sl-color-primary-soft: rgba(37, 99, 235, 0.1);
+  --sl-color-primary-text: #2563eb;
+
+  --sl-surface-card: #ffffff;
+  --sl-surface-card-soft: #fafcff;
+  --sl-surface-panel: #ffffff;
+
+  --sl-border-base: var(--card-border);
+  --sl-border-soft: #e2e8f0;
+
+  --sl-text-title: var(--text-primary);
+  --sl-text-body: var(--text-secondary);
+
+  --sl-shadow-card: 0 10px 24px rgba(15, 23, 42, 0.04);
+  --sl-shadow-card-hover: 0 16px 30px rgba(15, 23, 42, 0.07);
+
+  --sl-radius-card: 18px;
+  --sl-radius-panel: 20px;
+
+  --sl-space-page: 1.25rem;
+  --sl-space-gap: 0.75rem;
+}
+
+html[data-theme='dark'] .settlement-list-page,
+.dark .settlement-list-page {
+  --sl-color-primary-soft: rgba(92, 200, 255, 0.12);
+  --sl-color-primary-text: #9edbff;
+
+  --sl-surface-card: #202a35;
+  --sl-surface-card-soft: #202a35;
+  --sl-surface-panel: var(--card-bg);
+
+  --sl-border-base: rgba(167, 182, 199, 0.14);
+  --sl-border-soft: rgba(167, 182, 199, 0.12);
+
+  --sl-shadow-card: 0 12px 24px rgba(4, 10, 18, 0.12);
+  --sl-shadow-card-hover: 0 16px 30px rgba(4, 10, 18, 0.18);
+}
+
+html[data-theme='dark'] .settlement-list-page .el-empty,
+.dark .settlement-list-page .el-empty {
+  --el-empty-fill-color-0: rgba(36, 47, 60, 0.92);
+  --el-empty-fill-color-1: rgba(45, 58, 72, 0.92);
+  --el-empty-fill-color-2: rgba(56, 71, 88, 0.88);
+  --el-empty-fill-color-3: rgba(77, 94, 113, 0.84);
+  --el-empty-fill-color-4: rgba(90, 109, 129, 0.82);
+  --el-empty-fill-color-5: rgba(112, 129, 147, 0.72);
+  --el-empty-fill-color-6: rgba(140, 156, 173, 0.62);
+  --el-empty-fill-color-7: rgba(167, 182, 199, 0.54);
+  --el-empty-fill-color-8: rgba(192, 204, 216, 0.42);
+  --el-empty-fill-color-9: rgba(214, 223, 231, 0.3);
+}
+
+html[data-theme='dark'] .settlement-list-page .el-drawer,
+.dark .settlement-list-page .el-drawer {
+  --el-drawer-bg-color: var(--background-elevated);
+}
+
+/* ==========================================================================
+   Structure
+   ========================================================================== */
+
+.settlement-list-page.sl-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sl-space-page);
+}
+
+.settlement-list-page .sl-filter-card,
+.settlement-list-page .sl-panel {
+  overflow: hidden;
+  border: 1px solid var(--sl-border-base);
+  border-radius: var(--sl-radius-panel);
+  background: var(--sl-surface-panel);
+  box-shadow: var(--card-shadow);
+}
+
+.settlement-list-page .sl-filter-card {
+  padding: 1rem;
+}
+
+.settlement-list-page .sl-filter-shell,
+.settlement-list-page .sl-filter-form,
+.settlement-list-page .sl-filter-actions,
+.settlement-list-page .sl-summary-row,
+.settlement-list-page .sl-contract-cell,
+.settlement-list-page .sl-drawer-footer {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.settlement-list-page .sl-filter-shell {
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--sl-space-gap);
+}
+
+.settlement-list-page .sl-filter-form {
+  flex: 1;
+}
+
+.settlement-list-page .sl-filter-search {
+  width: 100%;
+}
+
+.settlement-list-page .sl-filter-select {
+  width: 100%;
+}
+
+.settlement-list-page .sl-filter-select--compact {
+  width: 7rem;
+}
+
+.settlement-list-page .sl-filter-actions {
+  justify-content: flex-start;
+}
+
+.settlement-list-page .sl-summary-row {
+  margin-top: 0.75rem;
+}
+
+.settlement-list-page .sl-panel-header {
+  border-bottom: 1px solid var(--sl-border-soft);
+  background: var(--sl-surface-card);
+  padding: 1rem 1.25rem;
+}
+
+.settlement-list-page .sl-panel-head {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.settlement-list-page .sl-panel-title {
+  color: var(--sl-text-title);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.settlement-list-page .sl-panel-desc {
+  margin-top: 0.25rem;
+  color: var(--sl-text-body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.settlement-list-page .sl-panel-body {
+  padding: 1rem;
+}
+
+.settlement-list-page .sl-contract-cell {
+  min-width: 0;
+}
+
+.settlement-list-page .sl-contract-text {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.settlement-list-page .sl-value-primary {
+  color: var(--sl-color-primary-text);
+  font-weight: 600;
+}
+
+.settlement-list-page .sl-drawer-footer {
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (min-width: 640px) {
+  .settlement-list-page .sl-filter-search {
+    width: 14rem;
+  }
+
+  .settlement-list-page .sl-filter-select {
+    width: 11rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .settlement-list-page .sl-filter-shell {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .settlement-list-page .sl-filter-actions {
+    justify-content: flex-end;
+  }
+}

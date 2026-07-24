@@ -1,0 +1,300 @@
+/* ==========================================================================
+   Payment List Theme Tokens
+   ========================================================================== */
+
+.payment-list-page {
+  --pl-color-accent: #10b981;
+  --pl-color-accent-soft: rgba(16, 185, 129, 0.12);
+  --pl-color-accent-text: #059669;
+  --pl-color-primary: #2563eb;
+  --pl-color-primary-soft: rgba(37, 99, 235, 0.1);
+  --pl-color-primary-text: #2563eb;
+  --pl-color-violet-text: #7c3aed;
+  --pl-color-danger-text: #e11d48;
+
+  --pl-surface-hero-start: #ffffff;
+  --pl-surface-hero-end: #f8fafc;
+  --pl-surface-card: #ffffff;
+  --pl-surface-card-soft: #fafcff;
+  --pl-surface-panel: #ffffff;
+
+  --pl-border-base: var(--card-border);
+  --pl-border-soft: #e2e8f0;
+
+  --pl-text-title: var(--text-primary);
+  --pl-text-body: var(--text-secondary);
+  --pl-text-muted: var(--text-muted);
+
+  --pl-shadow-hero: 0 12px 32px rgba(15, 23, 42, 0.06);
+  --pl-shadow-card: 0 10px 24px rgba(15, 23, 42, 0.04);
+  --pl-shadow-card-hover: 0 16px 30px rgba(15, 23, 42, 0.07);
+
+  --pl-radius-hero: 28px;
+  --pl-radius-card: 18px;
+  --pl-radius-panel: 20px;
+
+  --pl-space-page: 1.25rem;
+  --pl-space-card: 1.25rem;
+  --pl-space-panel: 1.25rem;
+  --pl-space-gap: 1rem;
+}
+
+html[data-theme='dark'] .payment-list-page,
+.dark .payment-list-page {
+  --pl-color-accent-soft: rgba(91, 208, 174, 0.08);
+  --pl-color-accent-text: #8fe7cd;
+  --pl-color-primary-soft: rgba(92, 200, 255, 0.12);
+  --pl-color-primary-text: #9edbff;
+  --pl-color-violet-text: #c4b5fd;
+  --pl-color-danger-text: #f4b8be;
+
+  --pl-surface-hero-start: rgba(30, 40, 52, 0.98);
+  --pl-surface-hero-end: rgba(28, 37, 48, 0.98);
+  --pl-surface-card: #202a35;
+  --pl-surface-card-soft: #202a35;
+  --pl-surface-panel: var(--card-bg);
+
+  --pl-border-base: rgba(167, 182, 199, 0.14);
+  --pl-border-soft: rgba(167, 182, 199, 0.12);
+
+  --pl-shadow-hero: 0 16px 32px rgba(4, 10, 18, 0.18);
+  --pl-shadow-card: 0 12px 24px rgba(4, 10, 18, 0.12);
+  --pl-shadow-card-hover: 0 16px 30px rgba(4, 10, 18, 0.18);
+}
+
+/* ==========================================================================
+   Structure
+   ========================================================================== */
+
+.payment-list-page.pl-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pl-space-page);
+}
+
+.payment-list-page .pl-hero {
+  border: 1px solid var(--pl-border-soft);
+  border-radius: var(--pl-radius-hero);
+  background:
+    radial-gradient(circle at top left, var(--pl-color-accent-soft), transparent 40%),
+    linear-gradient(135deg, var(--pl-surface-hero-start), var(--pl-surface-hero-end));
+  box-shadow: var(--pl-shadow-hero);
+  padding: 1.25rem;
+}
+
+.payment-list-page .pl-hero-main {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.payment-list-page .pl-hero-copy {
+  max-width: 48rem;
+}
+
+.payment-list-page .pl-hero-kicker {
+  color: var(--pl-text-body);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+}
+
+.payment-list-page .pl-hero-title {
+  margin-top: 0.5rem;
+  color: var(--pl-text-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.payment-list-page .pl-hero-desc {
+  margin-top: 0.5rem;
+  color: var(--pl-text-body);
+  font-size: 0.875rem;
+  line-height: 1.7;
+}
+
+.payment-list-page .pl-filter-row,
+.payment-list-page .pl-tag-row,
+.payment-list-page .pl-panel-head,
+.payment-list-page .pl-panel-actions,
+.payment-list-page .pl-table-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.payment-list-page .pl-filter-row {
+  max-width: 620px;
+}
+
+.payment-list-page .pl-filter-select--project {
+  width: 11rem;
+}
+
+.payment-list-page .pl-filter-select--date {
+  width: 16rem;
+}
+
+.payment-list-page .pl-tag-row {
+  margin-top: 1rem;
+}
+
+.payment-list-page .pl-stat-grid,
+.payment-list-page .pl-ledger-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pl-space-gap);
+}
+
+.payment-list-page .pl-stat-card {
+  border: 1px solid var(--pl-border-soft);
+  border-radius: var(--pl-radius-card);
+  background: var(--pl-surface-card);
+  box-shadow: var(--pl-shadow-card);
+  padding: var(--pl-space-card);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.payment-list-page .pl-stat-card:hover {
+  border-color: var(--pl-border-base);
+  box-shadow: var(--pl-shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.payment-list-page .pl-stat-kicker {
+  color: var(--pl-text-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.payment-list-page .pl-stat-value {
+  margin-top: 0.5rem;
+  color: var(--pl-text-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.payment-list-page .pl-stat-note {
+  margin-top: 0.5rem;
+  color: var(--pl-text-body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.payment-list-page .pl-panel {
+  overflow: hidden;
+  border: 1px solid var(--pl-border-base);
+  border-radius: var(--pl-radius-panel);
+  background: var(--pl-surface-panel);
+}
+
+.payment-list-page .pl-panel-header {
+  border-bottom: 1px solid var(--pl-border-soft);
+  background: var(--pl-surface-card);
+  padding: 1.25rem;
+}
+
+.payment-list-page .pl-panel-head {
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.payment-list-page .pl-panel-copy {
+  min-width: 0;
+}
+
+.payment-list-page .pl-panel-title {
+  color: var(--pl-text-title);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.payment-list-page .pl-panel-desc {
+  margin-top: 0.25rem;
+  color: var(--pl-text-body);
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+
+.payment-list-page .pl-panel-body {
+  padding: 1.25rem;
+}
+
+.payment-list-page .pl-dialog-form .el-form-item:last-child {
+  margin-bottom: 0;
+}
+
+.payment-list-page .pl-field-full {
+  width: 100%;
+}
+
+.payment-list-page .pl-amount-success {
+  color: var(--pl-color-accent-text);
+}
+
+.payment-list-page .pl-amount-primary {
+  color: var(--pl-color-primary-text);
+}
+
+.payment-list-page .pl-amount-violet {
+  color: var(--pl-color-violet-text);
+}
+
+.payment-list-page .pl-amount-danger {
+  color: var(--pl-color-danger-text);
+}
+
+.payment-list-page .pl-amount-strong {
+  font-weight: 600;
+}
+
+.payment-list-page .pl-table-wrap {
+  overflow: hidden;
+  border: 1px solid var(--pl-border-soft);
+  border-radius: var(--pl-radius-card);
+  background: var(--pl-surface-card-soft);
+}
+
+.payment-list-page .pl-table-action-row--center {
+  justify-content: center;
+}
+
+.payment-list-page .pl-dialog-footer {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  .payment-list-page .pl-stat-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .payment-list-page .pl-hero-main {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  .payment-list-page .pl-filter-row {
+    justify-content: flex-end;
+  }
+
+  .payment-list-page .pl-stat-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .payment-list-page .pl-ledger-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

@@ -1,0 +1,61 @@
+/* ==========================================================================
+   Payment Trend Chart Component
+   ========================================================================== */
+
+.ptc-chart {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.ptc-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+}
+
+.ptc-legend-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.ptc-legend-dot {
+  width: 0.625rem;
+  height: 0.625rem;
+  border-radius: 999px;
+}
+
+.ptc-legend-dot--settlement {
+  background: var(--chart-settlement);
+}
+
+.ptc-legend-dot--received {
+  background: var(--chart-received);
+}
+
+.ptc-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 18rem;
+  border: 1px dashed var(--card-border);
+  border-radius: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.875rem;
+}
+
+.ptc-panel {
+  border: 1px solid var(--card-border);
+  border-radius: 1rem;
+  padding: 1rem;
+}
+
+.ptc-svg {
+  display: block;
+  width: 100%;
+  height: 18rem;
+}

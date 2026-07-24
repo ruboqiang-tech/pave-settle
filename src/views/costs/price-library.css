@@ -1,0 +1,143 @@
+.price-library-page {
+  --price-surface-panel: #ffffff;
+  --price-surface-panel-soft: #fafcff;
+  --price-border-base: var(--card-border);
+  --price-border-soft: #e2e8f0;
+  --price-text-title: var(--text-primary);
+  --price-text-body: var(--text-secondary);
+  --price-text-muted: var(--text-muted);
+  --price-primary: #2563eb;
+
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+html[data-theme='dark'] .price-library-page,
+.dark .price-library-page {
+  --price-surface-panel: var(--card-bg);
+  --price-surface-panel-soft: #202a35;
+  --price-border-base: rgba(167, 182, 199, 0.14);
+  --price-border-soft: rgba(167, 182, 199, 0.12);
+  --price-primary: #9edbff;
+}
+
+.price-page-head,
+.price-caliber-panel,
+.price-table-panel {
+  border: 1px solid var(--price-border-base);
+  border-radius: 1rem;
+  background: var(--price-surface-panel);
+  box-shadow: var(--card-shadow);
+}
+
+.price-page-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.25rem 1.5rem;
+}
+
+.price-page-title {
+  margin: 0;
+  color: var(--price-text-title);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.price-page-meta,
+.price-page-actions,
+.price-table-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.price-page-meta {
+  margin-top: 0.5rem;
+  color: var(--price-text-body);
+  font-size: 0.875rem;
+}
+
+.price-page-actions {
+  flex-shrink: 0;
+}
+
+.price-caliber-panel {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0.75rem;
+  padding: 1rem;
+}
+
+.price-caliber-item {
+  min-width: 0;
+  border: 1px solid var(--price-border-soft);
+  border-radius: 0.75rem;
+  background: var(--price-surface-panel-soft);
+  padding: 0.875rem;
+}
+
+.price-caliber-item span {
+  color: var(--price-text-body);
+  font-size: 0.8125rem;
+}
+
+.price-caliber-item strong {
+  display: block;
+  margin-top: 0.3rem;
+  color: var(--price-primary);
+  font-size: 1rem;
+}
+
+.price-caliber-item p {
+  margin: 0.5rem 0 0;
+  color: var(--price-text-muted);
+  font-size: 0.8125rem;
+  line-height: 1.5;
+}
+
+.price-library-tabs > .el-tabs__content {
+  overflow: visible;
+}
+
+.price-table-panel {
+  overflow: hidden;
+  padding: 1rem;
+}
+
+.price-table-head {
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.price-table-head h3 {
+  margin: 0;
+  color: var(--price-text-title);
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+@media (max-width: 1024px) {
+  .price-caliber-panel {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .price-page-head {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .price-page-actions {
+    width: 100%;
+  }
+
+  .price-table-panel {
+    padding: 1rem;
+  }
+}

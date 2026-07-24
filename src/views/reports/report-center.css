@@ -1,0 +1,248 @@
+/* ==========================================================================
+   Report Center Theme Tokens
+   ========================================================================== */
+
+.report-center-page {
+  --rc-color-primary: #2563eb;
+  --rc-color-primary-soft: rgba(37, 99, 235, 0.1);
+  --rc-color-primary-text: #2563eb;
+  --rc-color-success: #10b981;
+  --rc-color-success-soft: rgba(16, 185, 129, 0.1);
+  --rc-color-success-text: #059669;
+  --rc-color-warning: #f59e0b;
+  --rc-color-warning-soft: rgba(245, 158, 11, 0.1);
+  --rc-color-warning-text: #d97706;
+  --rc-color-danger-text: #ef4444;
+
+  --rc-surface-panel: #ffffff;
+  --rc-surface-card: #ffffff;
+  --rc-surface-card-soft: #fafcff;
+  --rc-surface-filter: #ffffff;
+
+  --rc-border-base: var(--card-border);
+  --rc-border-soft: #e2e8f0;
+
+  --rc-text-title: var(--text-primary);
+  --rc-text-body: var(--text-secondary);
+  --rc-text-muted: var(--text-muted);
+
+  --rc-shadow-card: 0 10px 24px rgba(15, 23, 42, 0.04);
+  --rc-shadow-card-hover: 0 16px 30px rgba(15, 23, 42, 0.07);
+
+  --rc-radius-card: 18px;
+  --rc-radius-panel: 20px;
+
+  --rc-space-page: 1.5rem;
+  --rc-space-card: 1.25rem;
+  --rc-space-panel: 1.5rem;
+  --rc-space-gap: 1rem;
+}
+
+html[data-theme='dark'] .report-center-page,
+.dark .report-center-page {
+  --rc-color-primary-text: #9edbff;
+  --rc-color-success-text: #8fe7cd;
+  --rc-color-warning-text: #f6c38a;
+  --rc-color-danger-text: #f4b8be;
+
+  --rc-surface-panel: var(--card-bg);
+  --rc-surface-card: #202a35;
+  --rc-surface-card-soft: #202a35;
+  --rc-surface-filter: #202a35;
+
+  --rc-border-base: rgba(167, 182, 199, 0.14);
+  --rc-border-soft: rgba(167, 182, 199, 0.12);
+
+  --rc-shadow-card: 0 12px 24px rgba(4, 10, 18, 0.12);
+  --rc-shadow-card-hover: 0 16px 30px rgba(4, 10, 18, 0.18);
+}
+
+/* ==========================================================================
+   Structure
+   ========================================================================== */
+
+.report-center-page.rc-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--rc-space-page);
+}
+
+.report-center-page .rc-filter-card,
+.report-center-page .rc-highlight-card,
+.report-center-page .rc-panel {
+  border: 1px solid var(--rc-border-base);
+  border-radius: var(--rc-radius-card);
+  background: var(--rc-surface-card);
+}
+
+.report-center-page .rc-filter-card,
+.report-center-page .rc-panel {
+  box-shadow: var(--card-shadow);
+}
+
+.report-center-page .rc-filter-card {
+  background: var(--rc-surface-filter);
+  padding: 1rem;
+}
+
+.report-center-page .rc-filter-head,
+.report-center-page .rc-filter-actions,
+.report-center-page .rc-highlight-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.report-center-page .rc-filter-shell {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.report-center-page .rc-filter-note {
+  margin-top: 0.75rem;
+  color: var(--rc-text-body);
+  font-size: 0.875rem;
+}
+
+.report-center-page .rc-filter-select {
+  width: 11rem;
+}
+
+.report-center-page .rc-highlight-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--rc-space-gap);
+}
+
+.report-center-page .rc-highlight-card {
+  box-shadow: var(--rc-shadow-card);
+  overflow: hidden;
+  padding: 1.25rem;
+  position: relative;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+.report-center-page .rc-highlight-card:hover {
+  box-shadow: var(--rc-shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.report-center-page .rc-highlight-card::before {
+  content: '';
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(92, 200, 255, 0.2), rgba(91, 208, 174, 0.05));
+  opacity: 0.42;
+}
+
+.report-center-page .rc-highlight-head {
+  color: var(--rc-text-body);
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+
+.report-center-page .rc-highlight-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+}
+
+.report-center-page .rc-highlight-value {
+  margin-top: 0.75rem;
+  color: var(--rc-text-title);
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.report-center-page .rc-highlight-note {
+  margin-top: 0.5rem;
+  color: var(--rc-text-body);
+  font-size: 0.875rem;
+}
+
+.report-center-page .rc-panel {
+  padding: var(--rc-space-panel);
+}
+
+.report-center-page .rc-panel-copy {
+  margin-bottom: 1rem;
+}
+
+.report-center-page .rc-panel-title {
+  color: var(--rc-text-title);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.report-center-page .rc-panel-desc {
+  margin-top: 0.25rem;
+  color: var(--rc-text-body);
+  font-size: 0.875rem;
+}
+
+.report-center-page .rc-value-strong {
+  font-weight: 600;
+}
+
+.report-center-page .rc-value-primary {
+  color: var(--rc-color-primary-text);
+}
+
+.report-center-page .rc-value-success {
+  color: var(--rc-color-success-text);
+}
+
+.report-center-page .rc-value-neutral {
+  color: var(--rc-text-title);
+}
+
+.report-center-page .rc-value-muted {
+  color: var(--rc-text-body);
+}
+
+.report-center-page .rc-value-warning {
+  color: var(--rc-color-warning-text);
+}
+
+.report-center-page .rc-value-danger {
+  color: var(--rc-color-danger-text);
+}
+
+.report-center-page .rc-dot-primary {
+  background: var(--rc-color-primary);
+}
+
+.report-center-page .rc-dot-success {
+  background: var(--rc-color-success);
+}
+
+.report-center-page .rc-dot-warning {
+  background: var(--rc-color-warning);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (min-width: 768px) {
+  .report-center-page .rc-highlight-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1280px) {
+  .report-center-page .rc-filter-shell {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .report-center-page .rc-highlight-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}

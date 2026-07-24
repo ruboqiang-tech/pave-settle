@@ -1,0 +1,278 @@
+/* ==========================================================================
+   Project List Theme Tokens
+   ========================================================================== */
+
+.project-list-page {
+  --pj-color-primary: #2563eb;
+  --pj-color-primary-soft: rgba(37, 99, 235, 0.1);
+  --pj-color-primary-text: #2563eb;
+  --pj-color-success-text: #059669;
+
+  --pj-surface-card: #ffffff;
+  --pj-surface-card-soft: #fafcff;
+  --pj-surface-panel: #ffffff;
+
+  --pj-border-base: var(--card-border);
+  --pj-border-soft: #e2e8f0;
+
+  --pj-text-title: var(--text-primary);
+  --pj-text-body: var(--text-secondary);
+  --pj-text-muted: var(--text-muted);
+
+  --pj-shadow-card: 0 10px 24px rgba(15, 23, 42, 0.04);
+  --pj-shadow-card-hover: 0 16px 30px rgba(15, 23, 42, 0.07);
+
+  --pj-radius-card: 18px;
+  --pj-radius-panel: 20px;
+
+  --pj-space-page: 1.25rem;
+  --pj-space-gap: 1rem;
+}
+
+html[data-theme='dark'] .project-list-page,
+.dark .project-list-page {
+  --pj-color-primary-soft: rgba(92, 200, 255, 0.12);
+  --pj-color-primary-text: #9edbff;
+  --pj-color-success-text: #8fe7cd;
+
+  --pj-surface-card: #202a35;
+  --pj-surface-card-soft: #202a35;
+  --pj-surface-panel: var(--card-bg);
+
+  --pj-border-base: rgba(167, 182, 199, 0.14);
+  --pj-border-soft: rgba(167, 182, 199, 0.12);
+
+  --pj-shadow-card: 0 12px 24px rgba(4, 10, 18, 0.12);
+  --pj-shadow-card-hover: 0 18px 32px rgba(4, 10, 18, 0.22);
+}
+
+/* ==========================================================================
+   Structure
+   ========================================================================== */
+
+.project-list-page.pj-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pj-space-page);
+}
+
+.project-list-page .pj-filter-card {
+  border: 1px solid var(--pj-border-base);
+  border-radius: var(--pj-radius-panel);
+  background: var(--pj-surface-panel);
+  box-shadow: var(--card-shadow);
+  padding: 1rem;
+}
+
+.project-list-page .pj-filter-shell,
+.project-list-page .pj-filter-form,
+.project-list-page .pj-filter-actions,
+.project-list-page .pj-summary-row,
+.project-list-page .pj-card-head,
+.project-list-page .pj-card-title-row,
+.project-list-page .pj-meta-row,
+.project-list-page .pj-action-row,
+.project-list-page .pj-card-actions,
+.project-list-page .pj-dialog-footer,
+.project-list-page .pj-metric-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.project-list-page .pj-filter-shell {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0.75rem;
+}
+
+.project-list-page .pj-filter-form {
+  flex: 1;
+}
+
+.project-list-page .pj-filter-search {
+  width: 100%;
+}
+
+.project-list-page .pj-filter-select {
+  width: 100%;
+}
+
+.project-list-page .pj-filter-select--compact {
+  width: 7rem;
+}
+
+.project-list-page .pj-summary-row {
+  margin-top: 0.75rem;
+}
+
+.project-list-page .pj-card-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--pj-space-gap);
+}
+
+.project-list-page .pj-card {
+  border: 1px solid var(--pj-border-base);
+  border-radius: var(--pj-radius-panel);
+  background: var(--pj-surface-panel);
+  box-shadow: var(--pj-shadow-card);
+  cursor: pointer;
+  padding: 1.25rem;
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.project-list-page .pj-card:hover {
+  box-shadow: var(--pj-shadow-card-hover);
+  transform: translateY(-2px);
+}
+
+.project-list-page .pj-card-head,
+.project-list-page .pj-card-actions,
+.project-list-page .pj-metric-head {
+  justify-content: space-between;
+}
+
+.project-list-page .pj-card-copy,
+.project-list-page .pj-meta-stack {
+  min-width: 0;
+}
+
+.project-list-page .pj-card-title {
+  margin: 0;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--pj-text-title);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.project-list-page .pj-card-code {
+  margin-top: 0.25rem;
+  color: var(--pj-text-body);
+  font-size: 0.875rem;
+}
+
+.project-list-page .pj-meta-list {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: var(--pj-text-body);
+  font-size: 0.875rem;
+}
+
+.project-list-page .pj-meta-row {
+  min-width: 0;
+}
+
+.project-list-page .pj-meta-row--top {
+  align-items: flex-start;
+}
+
+.project-list-page .pj-meta-icon {
+  color: var(--pj-text-muted);
+}
+
+.project-list-page .pj-meta-icon--offset {
+  margin-top: 0.125rem;
+}
+
+.project-list-page .pj-meta-text {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.project-list-page .pj-metric-panel {
+  margin-top: 1rem;
+  border: 1px solid var(--pj-border-soft);
+  border-radius: var(--pj-radius-card);
+  background: var(--pj-surface-card-soft);
+  padding: 0.75rem 1rem;
+}
+
+.project-list-page .pj-metric-label,
+.project-list-page .pj-stat-label {
+  color: var(--pj-text-body);
+  font-size: 0.75rem;
+}
+
+.project-list-page .pj-progress {
+  margin-top: 0.5rem;
+}
+
+.project-list-page .pj-stat-grid {
+  margin-top: 0.75rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.project-list-page .pj-stat-value {
+  margin-top: 0.25rem;
+  color: var(--pj-text-title);
+  font-weight: 600;
+}
+
+.project-list-page .pj-value-primary {
+  color: var(--pj-color-primary-text);
+}
+
+.project-list-page .pj-value-success {
+  color: var(--pj-color-success-text);
+}
+
+.project-list-page .pj-value-neutral {
+  color: var(--pj-text-title);
+}
+
+.project-list-page .pj-value-strong {
+  font-weight: 600;
+}
+
+.project-list-page .pj-card-actions {
+  margin-top: 1rem;
+}
+
+.project-list-page .pj-dialog-footer {
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (min-width: 640px) {
+  .project-list-page .pj-filter-search {
+    width: 15rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .project-list-page .pj-filter-shell {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .project-list-page .pj-filter-actions {
+    justify-content: flex-end;
+  }
+
+  .project-list-page .pj-card-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1536px) {
+  .project-list-page .pj-card-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}

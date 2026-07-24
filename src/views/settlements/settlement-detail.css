@@ -1,0 +1,285 @@
+/* ==========================================================================
+   Settlement Detail Theme Tokens
+   ========================================================================== */
+
+.settlement-detail-page {
+  --sd-color-primary: #2563eb;
+  --sd-color-primary-text: #2563eb;
+  --sd-color-danger-text: #e11d48;
+  --sd-color-warning-soft: rgba(240, 191, 94, 0.12);
+  --sd-color-warning-border: rgba(240, 191, 94, 0.22);
+  --sd-color-warning-text: #d97706;
+
+  --sd-surface-card: #ffffff;
+  --sd-surface-card-soft: #fafcff;
+  --sd-surface-panel: #ffffff;
+
+  --sd-border-base: var(--card-border);
+  --sd-border-soft: #e2e8f0;
+
+  --sd-text-title: var(--text-primary);
+  --sd-text-body: var(--text-secondary);
+  --sd-text-muted: var(--text-muted);
+
+  --sd-shadow-card: 0 10px 24px rgba(15, 23, 42, 0.04);
+
+  --sd-radius-card: 18px;
+  --sd-radius-panel: 20px;
+
+  --sd-space-page: 1rem;
+  --sd-space-gap: 1rem;
+}
+
+html[data-theme='dark'] .settlement-detail-page,
+.dark .settlement-detail-page {
+  --sd-color-primary-text: #9edbff;
+  --sd-color-danger-text: #f0b0b0;
+  --sd-color-warning-soft: rgba(240, 191, 94, 0.12);
+  --sd-color-warning-border: rgba(240, 191, 94, 0.22);
+  --sd-color-warning-text: #f2c879;
+
+  --sd-surface-card: #202a35;
+  --sd-surface-card-soft: #202a35;
+  --sd-surface-panel: var(--card-bg);
+
+  --sd-border-base: rgba(167, 182, 199, 0.14);
+  --sd-border-soft: rgba(167, 182, 199, 0.12);
+
+  --sd-shadow-card: 0 12px 24px rgba(4, 10, 18, 0.12);
+}
+
+html[data-theme='dark'] .settlement-detail-page .el-alert,
+.dark .settlement-detail-page .el-alert {
+  --el-alert-bg-color: var(--sd-color-warning-soft);
+  --el-alert-border-color-light: var(--sd-color-warning-border);
+  --el-alert-text-color: var(--sd-color-warning-text);
+}
+
+html[data-theme='dark'] .settlement-detail-page .el-descriptions,
+.dark .settlement-detail-page .el-descriptions {
+  --el-descriptions-table-border: var(--table-border);
+  --el-fill-color-blank: var(--card-bg);
+}
+
+html[data-theme='dark'] .settlement-detail-page .el-collapse,
+.dark .settlement-detail-page .el-collapse,
+html[data-theme='dark'] .settlement-detail-page .el-collapse-item__header,
+.dark .settlement-detail-page .el-collapse-item__header,
+html[data-theme='dark'] .settlement-detail-page .el-collapse-item__wrap,
+.dark .settlement-detail-page .el-collapse-item__wrap {
+  background-color: var(--card-bg);
+  border-color: var(--card-border);
+  color: var(--text-primary);
+}
+
+/* ==========================================================================
+   Structure
+   ========================================================================== */
+
+.settlement-detail-page.sd-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sd-space-page);
+}
+
+.settlement-detail-page .sd-hero-panel,
+.settlement-detail-page .sd-panel {
+  border: 1px solid var(--sd-border-base);
+  border-radius: var(--sd-radius-panel);
+  background: var(--sd-surface-panel);
+  box-shadow: var(--card-shadow);
+}
+
+.settlement-detail-page .sd-hero-panel,
+.settlement-detail-page .sd-panel {
+  padding: 1rem;
+}
+
+.settlement-detail-page .sd-hero-shell,
+.settlement-detail-page .sd-hero-main,
+.settlement-detail-page .sd-hero-actions,
+.settlement-detail-page .sd-tag-row,
+.settlement-detail-page .sd-progress-head,
+.settlement-detail-page .sd-stat-row,
+.settlement-detail-page .sd-panel-head,
+.settlement-detail-page .sd-collapse-title,
+.settlement-detail-page .sd-collapse-copy {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.settlement-detail-page .sd-hero-shell,
+.settlement-detail-page .sd-panel-head,
+.settlement-detail-page .sd-collapse-title,
+.settlement-detail-page .sd-progress-head,
+.settlement-detail-page .sd-stat-row {
+  justify-content: space-between;
+}
+
+.settlement-detail-page .sd-hero-shell {
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.settlement-detail-page .sd-hero-main,
+.settlement-detail-page .sd-hero-actions {
+  gap: 0.5rem;
+}
+
+.settlement-detail-page .sd-hero-title,
+.settlement-detail-page .sd-section-title {
+  margin: 0;
+  color: var(--sd-text-title);
+}
+
+.settlement-detail-page .sd-hero-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.settlement-detail-page .sd-hero-desc,
+.settlement-detail-page .sd-section-desc,
+.settlement-detail-page .sd-stat-label,
+.settlement-detail-page .sd-collapse-meta {
+  color: var(--sd-text-body);
+  font-size: 0.875rem;
+}
+
+.settlement-detail-page .sd-hero-desc,
+.settlement-detail-page .sd-section-desc {
+  margin-top: 0.25rem;
+}
+
+.settlement-detail-page .sd-inline-badge {
+  margin-left: 0.25rem;
+}
+
+.settlement-detail-page .sd-field-full {
+  width: 100%;
+}
+
+.settlement-detail-page .sd-overview-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--sd-space-gap);
+}
+
+.settlement-detail-page .sd-section-copy {
+  margin-bottom: 0.75rem;
+}
+
+.settlement-detail-page .sd-section-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.settlement-detail-page .sd-value-strong {
+  color: var(--sd-text-title);
+  font-weight: 600;
+}
+
+.settlement-detail-page .sd-value-primary {
+  color: var(--sd-color-primary-text);
+}
+
+.settlement-detail-page .sd-value-danger {
+  color: var(--sd-color-danger-text);
+}
+
+.settlement-detail-page .sd-stat-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.settlement-detail-page .sd-progress-block {
+  margin-top: 1rem;
+}
+
+.settlement-detail-page .sd-panel--flush {
+  overflow: hidden;
+  padding: 0;
+}
+
+.settlement-detail-page .sd-panel-header {
+  border-bottom: 1px solid var(--sd-border-soft);
+  background: var(--sd-surface-card);
+  padding: 1rem 1.25rem;
+}
+
+.settlement-detail-page .sd-panel-body {
+  padding: 1.25rem;
+}
+
+.settlement-detail-page .sd-collapse-title {
+  width: 100%;
+  padding-right: 1rem;
+  font-size: 0.875rem;
+}
+
+.settlement-detail-page .sd-collapse-copy {
+  min-width: 0;
+}
+
+.settlement-detail-page .sd-collapse-meta {
+  margin-left: 0;
+}
+
+.settlement-detail-page :deep(.el-descriptions__cell) {
+  vertical-align: middle;
+}
+
+.settlement-detail-page :deep(.el-descriptions__label) {
+  width: 90px;
+  background-color: var(--el-fill-color-light) !important;
+  font-weight: 500;
+}
+
+.settlement-detail-page .engineering-table :deep(.el-input__inner) {
+  text-align: right;
+  padding-right: 12px;
+}
+
+.settlement-detail-page .sd-quantity-input {
+  width: 110px;
+}
+
+.settlement-detail-page .engineering-table :deep(.el-table__footer-wrapper) {
+  color: var(--el-color-primary);
+  font-weight: 600;
+}
+
+.settlement-detail-page .engineering-table :deep(.el-table__footer .cell) {
+  padding-right: 12px !important;
+}
+
+.settlement-detail-page .engineering-table :deep(.el-textarea__inner) {
+  padding: 4px 8px;
+  line-height: 1.5;
+}
+
+.settlement-detail-page .no-border-textarea :deep(.el-textarea__inner) {
+  box-shadow: none !important;
+  background-color: transparent !important;
+  resize: none !important;
+  cursor: default;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (min-width: 1280px) {
+  .settlement-detail-page .sd-hero-shell {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .settlement-detail-page .sd-overview-grid {
+    grid-template-columns: minmax(0, 1fr) 340px;
+  }
+}

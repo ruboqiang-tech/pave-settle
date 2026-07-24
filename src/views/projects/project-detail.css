@@ -1,0 +1,574 @@
+/* ==========================================================================
+   Project Detail Theme Tokens
+   ========================================================================== */
+
+.project-detail-page {
+  --pd-color-primary: #2563eb;
+  --pd-color-primary-soft: rgba(37, 99, 235, 0.1);
+  --pd-color-primary-border: rgba(37, 99, 235, 0.22);
+  --pd-color-primary-text: #2563eb;
+  --pd-color-warning-text: #d97706;
+
+  --pd-surface-panel: #ffffff;
+  --pd-surface-panel-soft: #fafcff;
+  --pd-surface-primary-soft: rgba(37, 99, 235, 0.06);
+
+  --pd-border-base: var(--card-border);
+  --pd-border-soft: #e2e8f0;
+
+  --pd-text-title: var(--text-primary);
+  --pd-text-body: var(--text-secondary);
+  --pd-text-muted: var(--text-muted);
+
+  --pd-shadow-panel: 0 10px 24px rgba(15, 23, 42, 0.04);
+  --pd-shadow-panel-hover: 0 16px 30px rgba(15, 23, 42, 0.07);
+  --pd-shadow-detail: 0 4px 12px -2px rgba(0, 0, 0, 0.05);
+
+  --pd-radius-card: 18px;
+  --pd-radius-panel: 20px;
+
+  --pd-space-page: 1.5rem;
+  --pd-space-panel: 1.5rem;
+  --pd-space-gap: 1rem;
+}
+
+html[data-theme='dark'] .project-detail-page,
+.dark .project-detail-page {
+  --pd-color-primary-soft: rgba(92, 200, 255, 0.1);
+  --pd-color-primary-border: rgba(92, 200, 255, 0.22);
+  --pd-color-primary-text: #9edbff;
+  --pd-color-warning-text: #f2c879;
+
+  --pd-surface-panel: var(--card-bg);
+  --pd-surface-panel-soft: #202a35;
+  --pd-surface-primary-soft: rgba(92, 200, 255, 0.08);
+
+  --pd-border-base: rgba(167, 182, 199, 0.14);
+  --pd-border-soft: rgba(167, 182, 199, 0.12);
+
+  --pd-shadow-panel: 0 12px 24px rgba(4, 10, 18, 0.12);
+  --pd-shadow-panel-hover: 0 16px 30px rgba(4, 10, 18, 0.18);
+  --pd-shadow-detail: 0 12px 24px rgba(4, 10, 18, 0.12);
+}
+
+html[data-theme='dark'] .project-detail-page .el-descriptions,
+.dark .project-detail-page .el-descriptions {
+  --el-descriptions-table-border: var(--table-border);
+  --el-fill-color-blank: var(--card-bg);
+}
+
+html[data-theme='dark'] .project-detail-page .summary-textarea .el-textarea__inner,
+.dark .project-detail-page .summary-textarea .el-textarea__inner {
+  background-color: rgba(19, 26, 34, 0.82) !important;
+}
+
+/* ==========================================================================
+   Structure
+   ========================================================================== */
+
+.project-detail-page.pd-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pd-space-page);
+}
+
+.project-detail-page .pd-panel {
+  border: 1px solid var(--pd-border-base);
+  border-radius: var(--pd-radius-panel);
+  background: var(--pd-surface-panel);
+  box-shadow: var(--card-shadow);
+  padding: var(--pd-space-panel);
+}
+
+.project-detail-page .pd-hero-head,
+.project-detail-page .pd-section-head,
+.project-detail-page .pd-subsection-head,
+.project-detail-page .pd-toolbar,
+.project-detail-page .pd-action-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-detail-page .pd-hero-head,
+.project-detail-page .pd-section-head,
+.project-detail-page .pd-toolbar,
+.project-detail-page .pd-subsection-head {
+  justify-content: space-between;
+}
+
+.project-detail-page .pd-hero {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.project-detail-page .pd-hero-copy {
+  min-width: 0;
+}
+
+.project-detail-page .pd-hero-title {
+  margin: 0;
+  color: var(--pd-text-title);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.project-detail-page .pd-hero-meta {
+  margin-top: 0.5rem;
+  color: var(--pd-text-body);
+  font-size: 0.95rem;
+}
+
+.project-detail-page .pd-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-detail-page .pd-section-head {
+  margin-bottom: 1rem;
+}
+
+.project-detail-page .pd-section-title {
+  margin: 0;
+  color: var(--pd-text-title);
+  font-size: 1.125rem;
+  font-weight: 600;
+}
+
+.project-detail-page .pd-contract-editor,
+.project-detail-page .project-contract-editor {
+  margin-bottom: 1rem;
+  border: 1px solid var(--pd-color-primary-border);
+  border-radius: 0.75rem;
+  background: var(--pd-surface-primary-soft);
+  padding: 1.25rem;
+}
+
+.project-detail-page .pd-subsection-title {
+  color: var(--pd-text-title);
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.project-detail-page .pd-subsection-title--small {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.project-detail-page .pd-contract-editor-body,
+.project-detail-page .pd-contract-detail-body {
+  display: flex;
+  gap: 2rem;
+}
+
+.project-detail-page .pd-contract-form-col {
+  width: 460px;
+  flex-shrink: 0;
+}
+
+.project-detail-page .pd-contract-boq-col,
+.project-detail-page .pd-contract-detail-copy {
+  min-width: 0;
+  flex: 1;
+}
+
+.project-detail-page .pd-form-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-detail-page .pd-form-stack .el-form-item {
+  margin-bottom: 0;
+}
+
+.project-detail-page .pd-field-full {
+  width: 100%;
+}
+
+.project-detail-page .pd-field-quantity {
+  width: 100%;
+  min-width: 0;
+}
+
+.project-detail-page .pd-field-price {
+  width: 100%;
+  min-width: 0;
+}
+
+.project-detail-page .pd-field-tax-rate {
+  width: 100%;
+  min-width: 0;
+}
+
+.project-detail-page .pd-field-tax-rate--compact {
+  width: 100%;
+}
+
+.project-detail-page .pd-boq-empty,
+.project-detail-page .project-boq-empty {
+  border: 1px solid var(--pd-border-soft);
+  border-radius: 0.5rem;
+  background: var(--pd-surface-panel-soft);
+  color: var(--pd-text-muted);
+  font-size: 0.875rem;
+  padding: 1.5rem 1rem;
+  text-align: center;
+}
+
+.project-detail-page .pd-contract-stack {
+  margin-bottom: 0.75rem;
+}
+
+.project-detail-page .pd-contract-stack:last-child {
+  margin-bottom: 0;
+}
+
+.project-detail-page .pd-contract-row,
+.project-detail-page .project-contract-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  cursor: pointer;
+  border: 1px solid var(--pd-border-base);
+  border-radius: 0.75rem;
+  background: var(--pd-surface-panel);
+  padding: 0.75rem 1rem;
+  transition: background-color 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.project-detail-page .pd-contract-row:hover,
+.project-detail-page .project-contract-row:hover {
+  background: var(--pd-surface-panel-soft);
+}
+
+.project-detail-page .pd-contract-row--expanded {
+  border-color: var(--pd-color-primary-border);
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  background: var(--pd-surface-primary-soft);
+  box-shadow: var(--pd-shadow-panel);
+}
+
+.project-detail-page .pd-contract-row-main,
+.project-detail-page .pd-contract-row-meta,
+.project-detail-page .pd-toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.project-detail-page .pd-contract-row-main {
+  min-width: 0;
+  flex: 1;
+}
+
+.project-detail-page .pd-contract-row-meta {
+  flex-shrink: 0;
+}
+
+.project-detail-page .pd-contract-arrow {
+  color: var(--pd-text-muted);
+  transition: transform 0.2s ease;
+}
+
+.project-detail-page .pd-contract-arrow--expanded {
+  transform: rotate(90deg);
+}
+
+.project-detail-page .pd-contract-code {
+  flex-shrink: 0;
+  color: var(--pd-text-body);
+  font-size: 0.875rem;
+}
+
+.project-detail-page .pd-contract-name {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: var(--pd-text-title);
+  font-weight: 500;
+}
+
+.project-detail-page .pd-contract-detail,
+.project-detail-page .project-contract-detail {
+  border: 1px solid var(--pd-color-primary-border);
+  border-top: 0;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+  background: var(--pd-surface-panel);
+  box-shadow: var(--pd-shadow-detail);
+  padding: 1.25rem;
+}
+
+.project-detail-page .pd-contract-detail-form {
+  width: 360px;
+  flex-shrink: 0;
+}
+
+.project-detail-page .pd-contract-summary,
+.project-detail-page .project-contract-summary {
+  margin-top: 1rem;
+  border: 1px solid var(--pd-color-primary-border);
+  border-radius: 0.75rem;
+  background: var(--pd-surface-primary-soft);
+  padding: 0.75rem;
+}
+
+.project-detail-page .pd-summary-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.875rem;
+}
+
+.project-detail-page .pd-summary-row + .pd-summary-row {
+  margin-top: 0.25rem;
+}
+
+.project-detail-page .pd-summary-label,
+.project-detail-page .pd-subsection-label,
+.project-detail-page .pd-toolbar-title,
+.project-detail-page .pd-import-note {
+  color: var(--pd-text-body);
+  font-size: 0.875rem;
+}
+
+.project-detail-page .pd-summary-label,
+.project-detail-page .pd-subsection-label,
+.project-detail-page .pd-toolbar-title {
+  font-weight: 500;
+}
+
+.project-detail-page .pd-subsection-label {
+  margin-bottom: 0.5rem;
+}
+
+.project-detail-page .pd-summary-value {
+  color: var(--pd-text-body);
+}
+
+.project-detail-page .pd-summary-value--primary,
+.project-detail-page .pd-amount-strong--primary {
+  color: var(--pd-color-primary-text);
+}
+
+.project-detail-page .pd-amount-mini {
+  font-size: 0.75rem;
+  color: var(--pd-text-body);
+}
+
+.project-detail-page .pd-amount-strong {
+  font-weight: 600;
+}
+
+.project-detail-page .pd-toolbar {
+  margin-bottom: 0.75rem;
+}
+
+.project-detail-page .pd-toolbar-group {
+  flex-wrap: wrap;
+}
+
+.project-detail-page .pd-inline-badge {
+  margin-left: 0.25rem;
+}
+
+.project-detail-page .pd-warning-icon {
+  margin-left: 0.25rem;
+  color: var(--pd-color-warning-text);
+  vertical-align: middle;
+}
+
+.project-detail-page .pd-import-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-detail-page .pd-cost-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.project-detail-page .pd-cost-metrics {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.project-detail-page .pd-cost-metric {
+  min-width: 0;
+  border: 1px solid var(--pd-border-soft);
+  border-radius: 0.5rem;
+  background: var(--pd-surface-panel-soft);
+  padding: 0.75rem;
+}
+
+.project-detail-page .pd-cost-metric-label {
+  display: block;
+  margin-bottom: 0.35rem;
+  color: var(--pd-text-body);
+  font-size: 0.8125rem;
+}
+
+.project-detail-page .pd-cost-metric strong {
+  display: block;
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--pd-text-title);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.35;
+}
+
+.project-detail-page .pd-cost-positive {
+  color: #059669 !important;
+}
+
+.project-detail-page .pd-cost-negative {
+  color: #dc2626 !important;
+}
+
+.project-detail-page .pd-cost-tabs {
+  margin-bottom: -0.5rem;
+}
+
+.project-detail-page .pd-cost-toolbar {
+  margin-bottom: 0;
+}
+
+.project-detail-page .pd-cost-breakdown {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.project-detail-page .pd-cost-breakdown-item {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border: 1px solid var(--pd-border-soft);
+  border-radius: 0.5rem;
+  background: var(--pd-surface-panel);
+  padding: 0.625rem 0.75rem;
+  color: var(--pd-text-body);
+  font-size: 0.875rem;
+}
+
+.project-detail-page .pd-cost-breakdown-item strong {
+  min-width: 0;
+  overflow-wrap: anywhere;
+  color: var(--pd-text-title);
+}
+
+.project-detail-page .pd-cost-table .el-input-number,
+.project-detail-page .pd-cost-table .el-date-editor,
+.project-detail-page .pd-cost-table .el-select,
+.project-detail-page .pd-cost-table .el-input {
+  width: 100%;
+}
+
+.project-detail-page .pd-import-note {
+  margin-bottom: 0.5rem;
+}
+
+.project-detail-page .pd-empty-state {
+  display: flex;
+  min-height: 24rem;
+  align-items: center;
+  justify-content: center;
+}
+
+.project-detail-page .pd-panel .el-table,
+.project-detail-page .pd-contract-detail .el-table,
+.project-detail-page .pd-contract-editor .el-table {
+  border-radius: 0.75rem;
+  overflow: hidden;
+}
+
+.project-detail-page .el-table .el-textarea__inner {
+  padding: 4px 8px;
+  line-height: 1.5;
+  font-size: 13px;
+}
+
+.project-detail-page .pd-boq-table .cell {
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
+.project-detail-page .pd-boq-table .el-input__wrapper,
+.project-detail-page .pd-boq-table .el-textarea__inner {
+  box-shadow: 0 0 0 1px var(--el-border-color-light) inset;
+}
+
+.project-detail-page .pd-boq-table .el-input-number,
+.project-detail-page .pd-boq-table .el-select,
+.project-detail-page .pd-boq-table .el-input {
+  width: 100%;
+}
+
+.project-detail-page .pd-boq-textarea .el-textarea__inner {
+  resize: vertical;
+  min-height: 28px !important;
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 1280px) {
+  .project-detail-page .pd-cost-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .project-detail-page .pd-contract-editor-body,
+  .project-detail-page .pd-contract-detail-body {
+    flex-direction: column;
+  }
+
+  .project-detail-page .pd-contract-form-col,
+  .project-detail-page .pd-contract-detail-form {
+    width: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .project-detail-page .pd-panel {
+    padding: 1rem;
+  }
+
+  .project-detail-page .pd-cost-metrics,
+  .project-detail-page .pd-cost-breakdown {
+    grid-template-columns: 1fr;
+  }
+
+  .project-detail-page .pd-hero-head,
+  .project-detail-page .pd-section-head,
+  .project-detail-page .pd-subsection-head,
+  .project-detail-page .pd-toolbar {
+    align-items: flex-start;
+  }
+
+  .project-detail-page .pd-contract-row,
+  .project-detail-page .project-contract-row {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .project-detail-page .pd-contract-row-meta {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
